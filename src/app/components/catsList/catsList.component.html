@@ -1,0 +1,41 @@
+<mat-card class="search">
+  <h2 class="search__title">Search</h2>
+  <form
+    [formGroup]="registrationForm"
+    (ngSubmit)="onSubmit()"
+    class="search__form"
+  >
+    <mat-form-field class="search__input" appearance="fill">
+      <mat-label>Select Breed</mat-label>
+      <mat-select
+        (change)="changeBreed($event)"
+        formControlName="breed"
+      >
+        <mat-option *ngFor="let breed of breeds" [value]="breed.id">
+          {{breed.name}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="search__input" appearance="fill">
+      <mat-label>Enter a cats count</mat-label>
+      <input
+        (change)="changeLimit($event)"
+        formControlName="limit"
+        matInput
+        type="number"
+      >
+    </mat-form-field>
+    <button mat-stroked-button>Submit</button>
+  </form>
+</mat-card>
+
+<div class="catsList">
+  <div *ngFor="let cat of cats$ | async">
+    <app-cat
+      [cat]="cat"
+    >
+    </app-cat>
+  </div>
+</div>
+

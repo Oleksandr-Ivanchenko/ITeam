@@ -1,0 +1,22 @@
+.catsList {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 50px;
+}
+
+.search {
+  &__title {
+    text-align: center;
+  }
+  &__form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  &__input {
+    margin: 20px;
+  }
+}
